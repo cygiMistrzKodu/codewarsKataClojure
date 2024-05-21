@@ -1,12 +1,10 @@
 (ns rock-paper-scissors)
 
+(def wins #{["rock" "scissors"] ["scissors" "paper"] ["paper" "rock"]})
+
 (defn rps [p1 p2]
   (cond
     (= p1 p2) "Draw!"
-    (case [p1 p2]
-      ["scissors" "paper"] true
-      ["paper" "rock"] true
-      ["rock" "scissors"] true
-      false) "Player 1 won!"
+    (wins [p1 p2]) "Player 1 won!"
     :else "Player 2 won!"))
 
