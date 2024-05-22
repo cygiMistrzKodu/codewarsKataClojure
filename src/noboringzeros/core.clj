@@ -3,6 +3,9 @@
 
 (defn no-boring-zeros [n]
 
-  (Integer/parseInt (re-find #"-?[1-9][0-9]*[1-9]|0?" (str n)))
+  (cond
+    (zero? n) n
+    (zero? (rem n 10)) (recur (/ n 10))
+    :else n)
 
   )
