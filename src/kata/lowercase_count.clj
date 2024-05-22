@@ -6,6 +6,5 @@
 
 (defn lowercase_count [strng]
 
-  (->> strng (filter is_lowercase?)
-       count)
+  (count (re-seq #"[a-z]" strng))
   )
